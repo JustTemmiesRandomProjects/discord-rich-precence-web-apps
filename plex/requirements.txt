@@ -1,0 +1,3 @@
+PlexAPI
+requests
+websocket-client
