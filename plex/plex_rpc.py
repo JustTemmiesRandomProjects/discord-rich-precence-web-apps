@@ -9,11 +9,14 @@ import requests
 import sys
 import time
 import urllib.parse
+import json
+from os.path import expanduser
 
 plexAlertListeners: list[PlexAlertListener] = []
 
 try:
-	loadConfig()
+	with open(expanduser("~") + '/config_files/plex_config.json', 'r') as f:
+		config = json.load(f)
 	if config["logging"]["debug"]:
 		logger.setLevel(logging.DEBUG)
 	if config["logging"]["writeToFile"]:
